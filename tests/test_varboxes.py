@@ -2,22 +2,23 @@
 
 
 """
-test all the tools in...
+test varboxes modules
 """
 
 import os
 import unittest
 
 
-class TestMyClass(unittest.TestCase):
+class TestVarBox(unittest.TestCase):
 
-    """all test concerning my class. """
+    """all test concerning VarBox. """
 
     @classmethod
     def setUpClass(cls):
         pass
 
     pass
+
 
 """ script tests """
 
