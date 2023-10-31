@@ -1,14 +1,15 @@
-pyproject
+varboxes
 ===================
 
-A template for a python project that can be build into a package and published on Pypi. It follows this `tutorial <https://packaging.python.org/en/latest/tutorials/packaging-projects/>`_ for packaging python projects.
+A varbox is an object to store permanently objects between python session. It uses json module, so it restricts the type of variable to store accordingely.
+
 
 Installation
 ============
 
 .. code-block:: bash
 
-    pip install pyproject
+    pip install varboxes
 
 Usage
 =====
@@ -18,8 +19,8 @@ This is an example:
 
 .. code-block:: python
 
-    import pyproject
-    pyproject.main()  # comments are usefull here
+    from varboxes import VarBox
+    vb = VarBox('MyApp')
 
 
 Features
