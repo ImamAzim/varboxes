@@ -19,6 +19,7 @@ classifiers = [
 ]
 description = "a varbox allows to store parmanently python variables between sessions"
 dependencies = [
+	'xdg'
 ]
 
 [project.optional-dependencies]
