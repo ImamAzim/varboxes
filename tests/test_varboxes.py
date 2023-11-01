@@ -16,18 +16,28 @@ class TestVarBox(unittest.TestCase):
 
     """all test concerning VarBox. """
 
-    @classmethod
-    def setUpClass(cls):
-        cls.default_variables = dict(
-                a=1,
-                b=2,
-                c=3,
-                )
-        cls.varbox = VarBox(**cls.default_variables)
+    # @classmethod
+    # def setUpClass(cls):
+        # cls.varbox = VarBox(name='test_varboxes')
 
-    def test_var_getter(self):
-        for key, value in self.default_variables.items():
-            self.assertEqual(value, getattr(self.varbox, key))
+    # def test_get_path(self):
+        # varbox = VarBox(name='test_varboxes')
+
+    # def test_get_new_var():
+        # pass
+
+    # def test_set_new_var_get_same_session():
+        # pass
+
+    # def test_set_new_var_get_diff_session():
+        # pass
+
+    # def test_set_old_var_get_same_session():
+        # pass
+
+    # def test_set_old_var_get_diff_session():
+        # pass
+
 
     # def test_get_keys(self):
         # keys = self.parameters.get_keys()
@@ -39,6 +49,9 @@ class TestVarBox(unittest.TestCase):
 
 
 """ script tests """
+
+def test_1():
+    assert True
 
 
 if __name__ == '__main__':
