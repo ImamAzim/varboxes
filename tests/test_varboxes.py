@@ -25,6 +25,10 @@ class TestVarBox(unittest.TestCase):
                 )
         cls.varbox = VarBox(**cls.default_variables)
 
+    def test_var_getter(self):
+        for key, value in self.default_variables.items():
+            self.assertEqual(value, getattr(self.varbox, key))
+
     # def test_get_keys(self):
         # keys = self.parameters.get_keys()
         # self.assertEqual(self.default_parameters.keys(), keys)
