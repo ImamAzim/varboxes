@@ -7,7 +7,7 @@ import os
 import xdg
 
 
- VarBox(object):
+class VarBox(object):
 
     """
     allow to store and load variables between session.
