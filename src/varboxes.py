@@ -14,10 +14,12 @@ class VarBox(object):
     the variables are automaticelly saved on the disk everytime they are modified
     """
 
-    def __init__(self, project_name: str, app_name: str, **default_variables):
+    def __init__(self, project_name=None, app_name=None, **default_variables):
         """check if folder exist, make properties and load last values
 
-        :default_vars: dict of default values
+        :project_name: str or if None then takes name of virtualenv or varboxes
+        :app_name: str or if None then name is 0
+        :default_varables: dict of default values
         :name:
 
         """
