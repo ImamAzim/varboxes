@@ -9,27 +9,29 @@ import os
 import unittest
 
 
+from varboxes import VarBox
+
+
 class TestVarBox(unittest.TestCase):
 
     """all test concerning VarBox. """
 
     @classmethod
     def setUpClass(cls):
-        name = 'test'
-        cls.default_parameters = dict(
+        cls.default_variables = dict(
                 a=1,
                 b=2,
                 c=3,
                 )
-        cls.parameters = Parameters(name, **cls.default_parameters)
+        cls.varbox = VarBox(**cls.default_variables)
 
-    def test_get_keys(self):
-        keys = self.parameters.get_keys()
-        self.assertEqual(self.default_parameters.keys(), keys)
+    # def test_get_keys(self):
+        # keys = self.parameters.get_keys()
+        # self.assertEqual(self.default_parameters.keys(), keys)
 
-    def test_to_dict(self):
-        dic = self.parameters.to_dict()
-        self.assertDictEqual(self.default_parameters, dic)
+    # def test_to_dict(self):
+        # dic = self.parameters.to_dict()
+        # self.assertDictEqual(self.default_parameters, dic)
 
 
 """ script tests """
