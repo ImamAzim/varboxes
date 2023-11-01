@@ -7,7 +7,7 @@ import os
 import xdg
 
 
-class VarBox(object):
+ VarBox(object):
 
     """
     allow to store and load variables between session.
@@ -25,24 +25,35 @@ class VarBox(object):
         """
         self._default_variables = default_variables
 
-        directory = os.path.join(xdg.xdg_data_home(), APP_NAME)
+        if project_name is None:
+            venv_path = os.environ.get('VIRTUAL_ENV')
+            try:
+                os.path.basename(venv_path)
+            except TypeError:
+                project_name = 'varboxes'
+
+        if app_name is None:
+            app_name = '0'
+
+        directory = os.path.join(xdg.xdg_data_home(), project_name)
         if not os.path.exists(directory):
             os.makedirs(directory)
-        self._file_path = os.path.join(directory, name + '.json')
+        self._file_path = os.path.join(directory, f'varbox_{app_name}.json')
+
 
         def make_prop(name):
             def getter(self):
-                return self._parameters[name]
+                return self._variables[name]
 
             def setter(self, value):
-                self._parameters[name] = value
+                self._variables[name] = value
                 self._save_current_parameters()
 
             return property(getter, setter)
 
-        self._parameters = dict()
-        for name, value in default_parameters.items():
-            self._parameters[name] = value
+        self._variables = dict()
+        for name, value in default_variables.items():
+            self._variables[name] = value
             setattr(Parameters,  name, make_prop(name))
 
         # self._load_last_parameters()
@@ -54,7 +65,7 @@ class VarBox(object):
         # """
         # try:
             # with open(self._file_path, 'w') as myfile:
-                # json.dump(self._parameters, myfile)
+                # json.dump(self._variables, myfile)
         # except IOError:
             # print('could not access or find last parameter file')
         # except TypeError:
@@ -78,15 +89,15 @@ class VarBox(object):
             # print('json file is probably corrupted')
         # else:
             # for key, el in last_parameters.items():
-                # if key in self._parameters:
-                    # self._parameters[key] = el
+                # if key in self._variables:
+                    # self._variables[key] = el
 
     # def restore_default(self):
         # """TODO: restore default values
 
 
         # """
-        # for name in self._parameters:
+        # for name in self._variables:
             # setattr(self, name, self._default_variables[name])
 
     # def get_keys(self):
@@ -94,7 +105,7 @@ class VarBox(object):
         # :returns: keys obj of all parameter names
 
         # """
-        # return self._parameters.keys()
+        # return self._variables.keys()
 
     # def to_dict(self):
         # """convert to a dictionnary
