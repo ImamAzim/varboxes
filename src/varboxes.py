@@ -28,7 +28,7 @@ class VarBox(object):
         if project_name is None:
             venv_path = os.environ.get('VIRTUAL_ENV')
             try:
-                os.path.basename(venv_path)
+                project_name = os.path.basename(venv_path)
             except TypeError:
                 project_name = 'varboxes'
 
