@@ -54,7 +54,7 @@ class VarBox(object):
         self._variables = dict()
         for name, value in default_variables.items():
             self._variables[name] = value
-            setattr(Parameters,  name, make_prop(name))
+            setattr(VarBox,  name, make_prop(name))
 
         # self._load_last_parameters()
 
