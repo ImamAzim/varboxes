@@ -16,6 +16,21 @@ class TestVarBox(unittest.TestCase):
 
     """all test concerning VarBox. """
 
+    @classmethod
+    def setUpClass(cls):
+        pass
+
+    @classmethod
+    def tearDownClass(cls):
+        pass
+
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        pass
+
+
     # @classmethod
     # def setUpClass(cls):
         # cls.varbox = VarBox(name='test_varboxes')
@@ -49,9 +64,6 @@ class TestVarBox(unittest.TestCase):
 
 
 """ script tests """
-
-def test_1():
-    assert True
 
 
 if __name__ == '__main__':
