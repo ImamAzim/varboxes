@@ -7,6 +7,7 @@ test varboxes modules
 
 import os
 import unittest
+import time
 
 
 from varboxes import VarBox
@@ -18,7 +19,7 @@ class TestVarBox(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        pass
+        cls.varbox = VarBox(app_name='test_varbox')
 
     @classmethod
     def tearDownClass(cls):
@@ -30,16 +31,18 @@ class TestVarBox(unittest.TestCase):
     def tearDown(self):
         pass
 
+    # def test_new(self):
+        # self.varbox.new('test_var')
 
-    # @classmethod
-    # def setUpClass(cls):
-        # cls.varbox = VarBox(name='test_varboxes')
+    def test_get_new_var(self):
+        new_var_name = str(time.time_ns())
+        with self.assertRaises(AttributeError):
+            getattr(self, new_var_name)
+
 
     # def test_get_path(self):
         # varbox = VarBox(name='test_varboxes')
 
-    # def test_get_new_var():
-        # pass
 
     # def test_set_new_var_get_same_session():
         # pass
@@ -64,6 +67,11 @@ class TestVarBox(unittest.TestCase):
 
 
 """ script tests """
+
+# def test_set_get_vars():
+    # varbox1 = VarBox(app_name='test_varbox')
+    # new_var_name = str(time.time_ns())
+
 
 
 if __name__ == '__main__':
