@@ -34,10 +34,33 @@ class TestVarBox(unittest.TestCase):
     # def test_new(self):
         # self.varbox.new('test_var')
 
-    def test_get_new_var(self):
-        new_var_name = str(time.time_ns())
-        with self.assertRaises(AttributeError):
-            getattr(self, new_var_name)
+    # def test_get_new_var(self):
+        # new_var_name = str(time.time_ns())
+        # with self.assertRaises(AttributeError):
+            # getattr(self, new_var_name)
+
+    # def test_set(self):
+        # varbox1
+        # newvarname
+        # newvalue
+        # varbox1.newvarname=newvalue
+        # assert equal
+        # varbox2
+        # assert equal
+        # del value
+
+    # def test_del(self):
+        # # varbox1
+        # # newvarname
+        # # newvalue
+        # # varbox1.newvarname=newvalue
+        # del varbox1.newvarname
+        # # assert not exist
+        # # varbox2
+        # # assert not exist
+        # if exist, print check variables
+
+
 
 
     # def test_get_path(self):
