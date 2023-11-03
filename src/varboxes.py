@@ -2,6 +2,7 @@
 
 
 import os
+import json
 
 
 import xdg
@@ -37,7 +38,7 @@ class VarBox(object):
         if not os.path.exists(directory):
             os.makedirs(directory)
 
-        file_path = os.path.join(directory, f'varbox_{app_name}.json'
+        file_path = os.path.join(directory, f'varbox_{app_name}.json')
         super().__setattr__('_file_path', file_path)
 
         self._load_last_parameters()
@@ -57,24 +58,23 @@ class VarBox(object):
                     # 'could not save parameters. TypeError.'
                     # 'probably because one object is not Json serializable')
 
-    # def _load_last_parameters(self):
-        # """load parameter from last saved file
+    def _load_last_parameters(self):
+        """load parameter from last saved file
 
 
-        # """
-        # try:
-            # with open(self._file_path, 'r') as myfile:
-                # last_parameters = json.load(myfile)
-        # except EOFError:
-            # print('last parameter file is probably empty..')
-        # except IOError:
-            # print('could not access or find last parameter file')
-        # except json.decoder.JSONDecodeError:
-            # print('json file is probably corrupted')
-        # else:
-            # for key, el in last_parameters.items():
-                # if key in self._variables:
-                    # self._variables[key] = el
+        """
+        try:
+            with open(self._file_path, 'r') as myfile:
+                last_parameters = json.load(myfile)
+        except EOFError:
+            print('last parameter file is probably empty..')
+        except IOError:
+            print('could not access or find last parameter file')
+        except json.decoder.JSONDecodeError:
+            print('json file is probably corrupted')
+        else:
+            for key, el in last_parameters.items():
+                super().__setattr__(key, el)
 
 
 if __name__ == '__main__':
