@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-
-
 import os
 import json
 
@@ -16,12 +13,11 @@ class VarBox(object):
     """
 
     def __init__(self, project_name=None, app_name=None):
-        """check if folder exist else create.
+        """check if folder exist else create home data folder
         Load the stored attributes (variables)
 
         :project_name: str or if None then takes name of virtualenv or varboxes
         :app_name: str or if None then name is 0
-        :name:
 
         """
 
@@ -45,7 +41,7 @@ class VarBox(object):
         self._load_last_parameters()
 
     def __setattr__(self, name: str, value: any):
-        """TODO: replace the setattribute. In addition to usual function,
+        """redef the setattribute. In addition to usual function,
         it store the attribute and its value in a json file.
 
         :name: attribute name(variable)
