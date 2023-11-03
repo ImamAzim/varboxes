@@ -54,7 +54,6 @@ class VarBox(object):
 
         """
         super().__setattr__(name, value)
-        pass
 
         try:
             with open(self._file_path, 'w') as myfile:
