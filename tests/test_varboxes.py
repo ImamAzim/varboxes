@@ -5,7 +5,6 @@
 test varboxes modules
 """
 
-import os
 import unittest
 import time
 
@@ -19,7 +18,7 @@ class TestVarBox(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.varbox = VarBox(app_name='test_varbox')
+        pass
 
     @classmethod
     def tearDownClass(cls):
@@ -31,70 +30,18 @@ class TestVarBox(unittest.TestCase):
     def tearDown(self):
         pass
 
-    # def test_new(self):
-        # self.varbox.new('test_var')
+    def test_set(self):
+        varbox1 = VarBox(app_name='test_varbox')
+        timestamp = time.time()
+        varbox1.test_variable = timestamp
 
-    # def test_get_new_var(self):
-        # new_var_name = str(time.time_ns())
-        # with self.assertRaises(AttributeError):
-            # getattr(self, new_var_name)
+        self.assertEqual(timestamp, varbox1.test_variable)
 
-    # def test_set(self):
-        # varbox1
-        # newvarname
-        # newvalue
-        # varbox1.newvarname=newvalue
-        # assert equal
-        # varbox2
-        # assert equal
-        # del value
+        varbox2 = VarBox(app_name='test_varbox')
 
-    # def test_del(self):
-        # # varbox1
-        # # newvarname
-        # # newvalue
-        # # varbox1.newvarname=newvalue
-        # del varbox1.newvarname
-        # # assert not exist
-        # # varbox2
-        # # assert not exist
-        # if exist, print check variables
+        self.assertTrue(hasattr(varbox2, 'test_variable'))
 
-
-
-
-    # def test_get_path(self):
-        # varbox = VarBox(name='test_varboxes')
-
-
-    # def test_set_new_var_get_same_session():
-        # pass
-
-    # def test_set_new_var_get_diff_session():
-        # pass
-
-    # def test_set_old_var_get_same_session():
-        # pass
-
-    # def test_set_old_var_get_diff_session():
-        # pass
-
-
-    # def test_get_keys(self):
-        # keys = self.parameters.get_keys()
-        # self.assertEqual(self.default_parameters.keys(), keys)
-
-    # def test_to_dict(self):
-        # dic = self.parameters.to_dict()
-        # self.assertDictEqual(self.default_parameters, dic)
-
-
-""" script tests """
-
-# def test_set_get_vars():
-    # varbox1 = VarBox(app_name='test_varbox')
-    # new_var_name = str(time.time_ns())
-
+        self.assertEqual(timestamp, varbox2.test_variable)
 
 
 if __name__ == '__main__':
