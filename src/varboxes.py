@@ -43,6 +43,19 @@ class VarBox(object):
 
         self._load_last_parameters()
 
+    def __setattr__(self, name: str, value: any):
+        """TODO: replace the setattribute. In addition to usual function,
+        it store the attribute and its value in a json file.
+
+        :name: attribute name(variable)
+        :value: any jsonable value
+        :returns: None
+
+        """
+        pass
+
+
+
     # def _save_current_parameters(self):
         # """save current parameters in a json file
 
