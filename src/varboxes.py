@@ -12,11 +12,12 @@ class VarBox(object):
 
     """
     allow to store and load variables between session.
-    the variables are automaticelly saved on the disk everytime they are modified
+    the variables are saved on the disk everytime they are modified
     """
 
     def __init__(self, project_name=None, app_name=None):
-        """check if folder exist else create. load the stored attributes (variables)
+        """check if folder exist else create.
+        Load the stored attributes (variables)
 
         :project_name: str or if None then takes name of virtualenv or varboxes
         :app_name: str or if None then name is 0
@@ -48,28 +49,22 @@ class VarBox(object):
         it store the attribute and its value in a json file.
 
         :name: attribute name(variable)
-        :value: any jsonable value
+        :value: any json serializable value
         :returns: None
 
         """
+        super().__setattr__(name, value)
         pass
 
-
-
-    # def _save_current_parameters(self):
-        # """save current parameters in a json file
-
-
-        # """
-        # try:
-            # with open(self._file_path, 'w') as myfile:
-                # json.dump(self._variables, myfile)
-        # except IOError:
-            # print('could not access or find last parameter file')
-        # except TypeError:
-            # print(
-                    # 'could not save parameters. TypeError.'
-                    # 'probably because one object is not Json serializable')
+        try:
+            with open(self._file_path, 'w') as myfile:
+                json.dump(self.__dict__, myfile)
+        except IOError:
+            print('could not access or find last parameter file')
+        except TypeError:
+            print(
+                    'could not save parameters. typeerror.'
+                    'probably because one object is not json serializable')
 
     def _load_last_parameters(self):
         """load parameter from last saved file
