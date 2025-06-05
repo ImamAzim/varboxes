@@ -44,8 +44,8 @@ class VarBox(object):
         """save all attributes, even mutable object that were modified.
 
         """
-        for attr in vars(self):
-            pass
+        for attr, value in vars(self).items():
+            setattr(self, attr, value)
 
     def __setattr__(self, name: str, value: any):
         """redef the setattribute. In addition to usual function,
