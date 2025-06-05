@@ -40,6 +40,13 @@ class VarBox(object):
 
         self._load_last_parameters()
 
+    def save(self):
+        """save all attributes, even mutable object that were modified.
+
+        """
+        for attr in vars(self):
+            pass
+
     def __setattr__(self, name: str, value: any):
         """redef the setattribute. In addition to usual function,
         it store the attribute and its value in a json file.

@@ -43,6 +43,22 @@ class TestVarBox(unittest.TestCase):
 
         self.assertEqual(timestamp, varbox2.test_variable)
 
+    def test_save(self):
+        """test save method
+
+        """
+        varbox1 = VarBox(app_name='test_varbox')
+        timestamp = time.time()
+        varbox1.test_list = list()
+        varbox1.test_list.append(timestamp)
+
+        varbox1.save()
+
+        varbox2 = VarBox(app_name='test_varbox')
+
+        self.assertEqual(len(varbox1.test_list), len(varbox2.test_list))
+        self.assertEqual(timestamp, varbox2.test_list[0])
+
 
 if __name__ == '__main__':
     pass
