@@ -91,7 +91,11 @@ class VarBox(object):
         :returns:
 
         """
-        pass
+        path = self._file_path
+        if os.path.exists(path):
+            return path
+        else:
+            return None
 
 
 if __name__ == '__main__':

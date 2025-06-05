@@ -65,7 +65,9 @@ class TestVarBox(unittest.TestCase):
 
         """
         vb1 = VarBox(app_name='test_varbox')
+        vb1.a = 0
         vb2 = VarBox(app_name='test_varbox2')
+        vb2.b = 1
         path1 = vb1.get_path()
         path2 = vb2.get_path()
 
