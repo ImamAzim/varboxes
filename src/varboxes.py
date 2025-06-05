@@ -86,6 +86,13 @@ class VarBox(object):
             for key, el in last_parameters.items():
                 super().__setattr__(key, el)
 
+    def get_path(self) -> str:
+        """get the full path where the varbox file is located
+        :returns:
+
+        """
+        pass
+
 
 if __name__ == '__main__':
     pass

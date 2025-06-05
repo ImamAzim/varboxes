@@ -7,6 +7,7 @@ test varboxes modules
 
 import unittest
 import time
+import os
 
 
 from varboxes import VarBox
@@ -58,6 +59,19 @@ class TestVarBox(unittest.TestCase):
 
         self.assertEqual(len(varbox1.test_list), len(varbox2.test_list))
         self.assertEqual(timestamp, varbox2.test_list[0])
+
+    def test_path(self):
+        """test get_path method
+
+        """
+        vb1 = VarBox(app_name='test_varbox')
+        vb2 = VarBox(app_name='test_varbox2')
+        path1 = vb1.get_path()
+        path2 = vb2.get_path()
+
+        self.assertTrue(os.path.exists(path1))
+        self.assertTrue(os.path.exists(path2))
+        self.assertNotEqual(path1, path2)
 
 
 if __name__ == '__main__':
